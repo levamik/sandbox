@@ -13,3 +13,13 @@ pdf = df.limit(5000).toPandas()
 """create spark dataframe from pandas dataframe"""
 sdf = spark.createDataFrame(pdf)
 display(sdf.limit(100))
+
+# COMMAND ----------
+
+rc = sdf.agg({"year": "max"}).collect()
+rc[0][0]
+
+# COMMAND ----------
+
+import pandas as pd
+pd.__version__
